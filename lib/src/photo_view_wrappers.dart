@@ -32,6 +32,7 @@ class ImageWrapper extends StatefulWidget {
     required this.disableGestures,
     required this.errorBuilder,
     required this.enablePanAlways,
+    this.photoViewCoreKey,
   }) : super(key: key);
 
   final ImageProvider imageProvider;
@@ -58,6 +59,7 @@ class ImageWrapper extends StatefulWidget {
   final FilterQuality? filterQuality;
   final bool? disableGestures;
   final bool? enablePanAlways;
+  final Key? photoViewCoreKey;
 
   @override
   _ImageWrapperState createState() => _ImageWrapperState();
@@ -178,6 +180,7 @@ class _ImageWrapperState extends State<ImageWrapper> {
     );
 
     return PhotoViewCore(
+      key: widget.photoViewCoreKey,
       imageProvider: widget.imageProvider,
       backgroundDecoration: widget.backgroundDecoration,
       gaplessPlayback: widget.gaplessPlayback,
@@ -246,6 +249,7 @@ class CustomChildWrapper extends StatelessWidget {
     required this.filterQuality,
     required this.disableGestures,
     required this.enablePanAlways,
+    this.photoViewCoreKey,
   }) : super(key: key);
 
   final Widget? child;
@@ -273,6 +277,7 @@ class CustomChildWrapper extends StatelessWidget {
   final FilterQuality? filterQuality;
   final bool? disableGestures;
   final bool? enablePanAlways;
+  final Key? photoViewCoreKey;
 
   @override
   Widget build(BuildContext context) {
@@ -285,6 +290,7 @@ class CustomChildWrapper extends StatelessWidget {
     );
 
     return PhotoViewCore.customChild(
+      key: photoViewCoreKey,
       customChild: child,
       backgroundDecoration: backgroundDecoration,
       enableRotation: enableRotation,
